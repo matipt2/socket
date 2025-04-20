@@ -1,4 +1,4 @@
-package com.githubprojects.reactiveSockets.async;
+package com.githubprojects.reactiveSockets.tcp.async;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

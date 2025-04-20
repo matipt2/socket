@@ -1,4 +1,4 @@
-package com.githubprojects.reactiveSockets.sync;
+package com.githubprojects.reactiveSockets.tcp.sync;
 
 import java.io.IOException;
 import java.io.PrintWriter;

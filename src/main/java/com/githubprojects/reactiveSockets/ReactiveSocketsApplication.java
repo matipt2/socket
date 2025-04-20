@@ -1,7 +1,7 @@
 package com.githubprojects.reactiveSockets;
 
-import com.githubprojects.reactiveSockets.async.AsyncClient;
-import com.githubprojects.reactiveSockets.async.AsyncServer;
+import com.githubprojects.reactiveSockets.tcp.async.AsyncClient;
+import com.githubprojects.reactiveSockets.tcp.async.AsyncServer;
 
 public class ReactiveSocketsApplication {
 	public static void main(String[] args) throws InterruptedException {

@@ -1,4 +1,4 @@
-package com.githubprojects.reactiveSockets.async;
+package com.githubprojects.reactiveSockets.tcp.async;
 
 import reactor.core.publisher.Mono;
 import reactor.netty.DisposableServer;
