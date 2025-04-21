@@ -13,7 +13,7 @@ public class AsyncHttpServer {
                         .route(routes -> routes.post("/", ((request, response) ->
                                 request.receive()
                                         .asString()
-                                        .doOnNext(System.out::println)
+                                        .doOnNext(message -> System.out.println(request.requestHeaders()))
                                         .then(response.status(200).send().then()))
                         ))
                         .bindNow();

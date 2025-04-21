@@ -1,10 +1,14 @@
 package com.githubprojects.reactiveSockets;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.githubprojects.reactiveSockets.http.AsyncHttpClient;
 import com.githubprojects.reactiveSockets.http.AsyncHttpServer;
 
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
 public class ReactiveSocketsApplication {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, NoSuchAlgorithmException, InvalidKeyException, JsonProcessingException {
 //		int port = 8080;
 //		SyncServer server = new SyncServer();
 //		new Thread(() -> server.start(port)).start();

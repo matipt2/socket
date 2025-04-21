@@ -18,18 +18,18 @@ import java.util.Map;
 @Setter
 @Builder
 public class OwnJwt {
-    private Map<String, Object> claims;
-    private String payload;
-    private String signature;
+    private Map<String, Object> header;
+    private Map<Object, Object> payload;
     private static final String HMAC_ALGO = "HmacSHA256";
 
     public String buildJwt(String secret) throws JsonProcessingException, NoSuchAlgorithmException, InvalidKeyException {
         ObjectMapper objectMapper = new ObjectMapper();
 
-        String claimsJson = objectMapper.writeValueAsString(claims);
+        header = Map.of("alg", "HS256", "typ", "JWT");
+        String headerJson = objectMapper.writeValueAsString(header);
         String payloadJson = objectMapper.writeValueAsString(payload);
 
-        String encodedClaims = Base64.getUrlEncoder().withoutPadding().encodeToString(claimsJson.getBytes());
+        String encodedClaims = Base64.getUrlEncoder().withoutPadding().encodeToString(headerJson.getBytes());
         String encodedPayload = Base64.getUrlEncoder().withoutPadding().encodeToString(payloadJson.getBytes());
         String unsignedToken = encodedClaims+"."+encodedPayload;
 
