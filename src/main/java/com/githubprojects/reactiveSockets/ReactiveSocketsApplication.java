@@ -1,7 +1,7 @@
 package com.githubprojects.reactiveSockets;
 
-import com.githubprojects.reactiveSockets.tcp.async.AsyncClient;
-import com.githubprojects.reactiveSockets.tcp.async.AsyncServer;
+import com.githubprojects.reactiveSockets.http.AsyncHttpClient;
+import com.githubprojects.reactiveSockets.http.AsyncHttpServer;
 
 public class ReactiveSocketsApplication {
 	public static void main(String[] args) throws InterruptedException {
@@ -17,13 +17,19 @@ public class ReactiveSocketsApplication {
 //
 //		SyncClient client = new SyncClient();
 //		client.startClient(port);
+//
+//		int port = 6065;
+//		AsyncServer asyncServer = new AsyncServer();
+//		AsyncClient asyncClient = new AsyncClient();
+//
+//		new Thread(() -> asyncServer.start(port)).start();
+//		Thread.sleep(2000);
+//		asyncClient.start(port);
 
-		int port = 6065;
-		AsyncServer asyncServer = new AsyncServer();
-		AsyncClient asyncClient = new AsyncClient();
-
-		new Thread(() -> asyncServer.start(port)).start();
+		AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
+		AsyncHttpServer asyncHttpServer = new AsyncHttpServer();
+		new Thread(()-> asyncHttpServer.start(6606)).start();
 		Thread.sleep(2000);
-		asyncClient.start(port);
+		asyncHttpClient.start(6606);
 	}
 }
