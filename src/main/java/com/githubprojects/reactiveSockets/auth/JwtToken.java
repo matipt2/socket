@@ -17,7 +17,7 @@ import java.util.Map;
 @Getter
 @Setter
 @Builder
-public class OwnJwt {
+public class JwtToken {
     private Map<String, Object> header;
     private Map<Object, Object> payload;
     private static final String HMAC_ALGO = "HmacSHA256";

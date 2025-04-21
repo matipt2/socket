@@ -1,7 +1,7 @@
 package com.githubprojects.reactiveSockets.http;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.githubprojects.reactiveSockets.auth.OwnJwt;
+import com.githubprojects.reactiveSockets.auth.JwtToken;
 import io.netty.handler.codec.http.HttpHeaderNames;
 import reactor.core.publisher.Mono;
 import reactor.netty.ByteBufFlux;
@@ -38,7 +38,7 @@ public class AsyncHttpClient {
         payloadClaims.put("another-test", "test");
         String secret = "signature-for-my-own-jwt-token";
 
-        OwnJwt ownJwt = OwnJwt.builder().header(claims).payload(payloadClaims).build();
+        JwtToken ownJwt = JwtToken.builder().header(claims).payload(payloadClaims).build();
         String jwtToken = ownJwt.buildJwt(secret);
 
         return httpClient.headers(h -> h.set(HttpHeaderNames.AUTHORIZATION, jwtToken));
